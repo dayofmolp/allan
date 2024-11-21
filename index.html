@@ -6,6 +6,7 @@
   <title>Allans Accommodation</title>
   <link rel="stylesheet" href="styles.css">
   <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
   <header class="header">
@@ -15,6 +16,8 @@
         <li><a href="#about">About</a></li>
         <li><a href="#amenities">Amenities</a></li>
         <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#location">Location</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -27,24 +30,24 @@
       <button onclick="scrollToSection('#contact')">Apply Now</button>
     </section>
 
-    <section id="about">
+    <section id="about" class="section">
       <h2>About Us</h2>
       <p>Allans Accommodation offers affordable and safe housing for students. Located conveniently near public transport and major institutions, our property is designed with students' needs in mind.</p>
     </section>
 
-    <section id="amenities">
+    <section id="amenities" class="section">
       <h2>Amenities</h2>
       <ul class="amenities-list">
-        <li>Wi-Fi</li>
-        <li>Secure Parking</li>
-        <li>24/7 Security</li>
-        <li>Shared Kitchen</li>
-        <li>Study Area</li>
-        <li>Close to Shops</li>
+        <li><i class="fa fa-wifi"></i> High-Speed Wi-Fi</li>
+        <li><i class="fa fa-car"></i> Secure Parking</li>
+        <li><i class="fa fa-shield-alt"></i> 24/7 Security</li>
+        <li><i class="fa fa-utensils"></i> Shared Kitchen</li>
+        <li><i class="fa fa-book"></i> Study Area</li>
+        <li><i class="fa fa-shopping-cart"></i> Close to Shops</li>
       </ul>
     </section>
 
-    <section id="gallery">
+    <section id="gallery" class="section">
       <h2>Gallery</h2>
       <div class="gallery-container">
         <img src="images/room1.jpg" alt="Room Image 1">
@@ -54,7 +57,26 @@
       </div>
     </section>
 
-    <section id="contact">
+    <section id="testimonials" class="section">
+      <h2>Testimonials</h2>
+      <div class="testimonial-container">
+        <div class="testimonial">
+          <p>"I love staying here! The Wi-Fi is fast, and the rooms are clean. Highly recommended for students."</p>
+          <h4>- Jane Doe</h4>
+        </div>
+        <div class="testimonial">
+          <p>"The location is perfect, and the security gives me peace of mind. Great value for money."</p>
+          <h4>- John Smith</h4>
+        </div>
+      </div>
+    </section>
+
+    <section id="location" class="section">
+      <h2>Location</h2>
+      <div id="map"></div>
+    </section>
+
+    <section id="contact" class="section">
       <h2>Contact Us</h2>
       <form id="contact-form">
         <label for="name">Name</label>
@@ -74,5 +96,22 @@
   <footer>
     <p>© 2024 Allans Accommodation. All rights reserved.</p>
   </footer>
+
+  <script>
+    function initMap() {
+      const location = { lat: -33.926, lng: 18.604 }; // Coordinates for Bellville South
+      const map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 14,
+        center: location,
+      });
+      new google.maps.Marker({
+        position: location,
+        map: map,
+      });
+    }
+  </script>
+  <script async
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap">
+  </script>
 </body>
 </html>
